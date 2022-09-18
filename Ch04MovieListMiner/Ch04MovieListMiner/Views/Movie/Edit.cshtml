@@ -4,7 +4,7 @@
     ViewBag.Title = title;
 }
 <h2>@ViewBag.Title</h2>
-<form ap-action="Edit" method="post">
+<form asp-action="Edit" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Name">Name</label>
