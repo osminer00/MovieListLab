@@ -51,9 +51,20 @@ namespace Ch04MovieListMiner
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
+
+                endpoints.MapAreaControllerRoute( //admin route
+                   name: "admin",
+                   areaName: "Admin",
+                   pattern: "Admin/{controller=Home}/{action=Dummy3}/{id?}"
+                   );
+                endpoints.MapControllers(); //mapping for attribute route controllers
+                endpoints.MapControllerRoute( //custom routing rule
+                    name: "Dummy1",
+                    pattern: "{controller}/{action}/{cat}/page{num}"
+                    );
+                endpoints.MapControllerRoute( //default Route
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
+                    pattern: "{controller=Home}/{action=Dummy3}/{id?}/{slug?}");
             });
         }
     }

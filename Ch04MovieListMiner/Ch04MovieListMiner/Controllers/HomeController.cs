@@ -13,6 +13,25 @@ namespace Ch04MovieList.Controllers
         {
             context = ctx;
         }
+        [Route("[controller]s/{id?}")]
+        public IActionResult Dummy1() //custom routing
+        {
+            
+            return View();
+        }
+        [Route("Dummy2")] //attribute routing
+        public IActionResult Dummy2()
+        {
+
+            return View();
+        }
+        [Route("/")] //default routing
+        public IActionResult Dummy3()
+        {
+
+            return View();
+        }
+
         public IActionResult Index()
         {
             var movies = context.Movies.Include(m => m.Genre).OrderBy(m => m.Name).ToList();
